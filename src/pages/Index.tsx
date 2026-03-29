@@ -196,7 +196,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
+    <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
           src={HERO_IMG}
@@ -206,20 +206,20 @@ function Hero() {
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(28,23,16,0.88) 0%, rgba(28,23,16,0.3) 55%, rgba(28,23,16,0.1) 100%)" }}
+          style={{ background: "linear-gradient(to top, rgba(28,23,16,0.92) 0%, rgba(28,23,16,0.5) 50%, rgba(28,23,16,0.25) 100%)" }}
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pb-20 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 pt-24 pb-16 w-full">
         <div className="max-w-2xl">
           <p
-            className="text-xs tracking-[0.4em] uppercase mb-6 font-golos"
+            className="text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 md:mb-6 font-golos"
             style={{ color: "var(--gold)", animation: "fadeUp 0.8s ease 0.3s both" }}
           >
             Черноморское побережье · Анапа
           </p>
           <h1
-            className="font-cormorant text-6xl md:text-8xl font-light text-white leading-none mb-8"
+            className="font-cormorant text-[2.6rem] leading-[1.05] sm:text-6xl md:text-8xl font-light text-white mb-5 md:mb-8"
             style={{ animation: "fadeUp 0.8s ease 0.5s both" }}
           >
             Место,<br />
@@ -227,25 +227,25 @@ function Hero() {
             время
           </h1>
           <p
-            className="font-golos text-base text-white/75 mb-10 leading-relaxed max-w-md"
+            className="font-golos text-sm md:text-base text-white/70 mb-8 md:mb-10 leading-relaxed max-w-md"
             style={{ animation: "fadeUp 0.8s ease 0.7s both" }}
           >
             Премиальный курорт на берегу Чёрного моря. 18 гектаров природы, открытые бассейны, авторская кухня и полное спокойствие.
           </p>
           <div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4"
             style={{ animation: "fadeUp 0.8s ease 0.9s both" }}
           >
             <button
               onClick={() => document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-4 text-sm tracking-widest uppercase font-golos font-medium text-white transition-opacity hover:opacity-90"
+              className="px-7 py-3.5 md:px-8 md:py-4 text-xs md:text-sm tracking-widest uppercase font-golos font-medium text-white transition-opacity hover:opacity-90"
               style={{ background: "var(--gold)" }}
             >
               Забронировать
             </button>
             <button
               onClick={() => document.querySelector("#rooms")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-4 text-sm tracking-widest uppercase font-golos font-medium text-white border border-white/40 hover:border-white/80 transition-colors"
+              className="px-7 py-3.5 md:px-8 md:py-4 text-xs md:text-sm tracking-widest uppercase font-golos font-medium text-white border border-white/30 hover:border-white/70 transition-colors"
             >
               Смотреть номера
             </button>
@@ -253,11 +253,11 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-8 flex flex-col items-center gap-2 z-10">
-        <span className="text-white/50 text-xs tracking-widest font-golos" style={{ writingMode: "vertical-rl" }}>
+      <div className="absolute bottom-8 right-6 md:right-8 hidden sm:flex flex-col items-center gap-2 z-10">
+        <span className="text-white/40 text-[10px] tracking-widest font-golos" style={{ writingMode: "vertical-rl" }}>
           ПРОКРУТИТЕ
         </span>
-        <div className="w-px h-16 overflow-hidden" style={{ background: "rgba(255,255,255,0.2)" }}>
+        <div className="w-px h-12 overflow-hidden" style={{ background: "rgba(255,255,255,0.15)" }}>
           <div className="w-full" style={{ height: "50%", background: "var(--gold)", animation: "scrollLine 2s ease infinite" }} />
         </div>
       </div>
@@ -294,8 +294,8 @@ function StatsSection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-20 px-6" style={{ background: "var(--dark)" }}>
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
+    <section ref={ref} className="py-12 md:py-20 px-5 md:px-6" style={{ background: "var(--dark)" }}>
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
         {STATS.map((s, i) => (
           <div
             key={s.label}
@@ -306,7 +306,7 @@ function StatsSection() {
               transition: `opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s`,
             }}
           >
-            <div className="font-cormorant text-5xl md:text-6xl font-light mb-2" style={{ color: "var(--gold)" }}>
+            <div className="font-cormorant text-4xl md:text-6xl font-light mb-2" style={{ color: "var(--gold)" }}>
               {s.value}
             </div>
             <div className="text-xs tracking-widest uppercase font-golos" style={{ color: "rgba(255,255,255,0.5)" }}>
@@ -321,35 +321,35 @@ function StatsSection() {
 
 function AboutSection() {
   return (
-    <section id="about" className="py-24 px-6" style={{ background: "var(--cream)" }}>
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-16 md:py-24 px-5 md:px-6" style={{ background: "var(--cream)" }}>
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div className="reveal">
-          <p className="text-xs tracking-[0.4em] uppercase font-golos mb-4" style={{ color: "var(--gold)" }}>
+          <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-golos mb-3 md:mb-4" style={{ color: "var(--gold)" }}>
             О курорте
           </p>
-          <h2 className="font-cormorant text-5xl md:text-6xl font-light leading-tight mb-8 gold-line" style={{ color: "var(--dark)" }}>
+          <h2 className="font-cormorant text-3xl sm:text-4xl md:text-6xl font-light leading-tight mb-6 md:mb-8 gold-line" style={{ color: "var(--dark)" }}>
             Барвиха —<br /><em>не просто отдых</em>
           </h2>
-          <p className="font-golos text-base leading-relaxed mb-6" style={{ color: "var(--warm-gray)" }}>
+          <p className="font-golos text-sm md:text-base leading-relaxed mb-5 md:mb-6" style={{ color: "var(--warm-gray)" }}>
             Курорт расположен на первой береговой линии Анапы. 18 гектаров парковой зоны, выход на собственный пляж, четыре ресторана и полный спектр велнес-услуг — всё создано для того, чтобы вы забыли о суете большого города.
           </p>
-          <p className="font-golos text-base leading-relaxed mb-10" style={{ color: "var(--warm-gray)" }}>
+          <p className="font-golos text-sm md:text-base leading-relaxed mb-8 md:mb-10" style={{ color: "var(--warm-gray)" }}>
             Мы работаем для тех, кто ценит пространство, тишину и безупречный сервис. Каждая деталь продумана с заботой о вашем комфорте.
           </p>
-          <div className="flex gap-8">
+          <div className="flex gap-5 md:gap-8">
             <div>
-              <div className="font-cormorant text-3xl font-semibold" style={{ color: "var(--dark)" }}>2012</div>
-              <div className="text-xs tracking-wider uppercase font-golos mt-1" style={{ color: "var(--warm-gray)" }}>год основания</div>
+              <div className="font-cormorant text-2xl md:text-3xl font-semibold" style={{ color: "var(--dark)" }}>2012</div>
+              <div className="text-[10px] md:text-xs tracking-wider uppercase font-golos mt-1" style={{ color: "var(--warm-gray)" }}>год основания</div>
             </div>
             <div style={{ width: "1px", background: "var(--gold)", opacity: 0.3 }} />
             <div>
-              <div className="font-cormorant text-3xl font-semibold" style={{ color: "var(--dark)" }}>500 м</div>
-              <div className="text-xs tracking-wider uppercase font-golos mt-1" style={{ color: "var(--warm-gray)" }}>до моря</div>
+              <div className="font-cormorant text-2xl md:text-3xl font-semibold" style={{ color: "var(--dark)" }}>500 м</div>
+              <div className="text-[10px] md:text-xs tracking-wider uppercase font-golos mt-1" style={{ color: "var(--warm-gray)" }}>до моря</div>
             </div>
             <div style={{ width: "1px", background: "var(--gold)", opacity: 0.3 }} />
             <div>
-              <div className="font-cormorant text-3xl font-semibold" style={{ color: "var(--dark)" }}>12</div>
-              <div className="text-xs tracking-wider uppercase font-golos mt-1" style={{ color: "var(--warm-gray)" }}>наград</div>
+              <div className="font-cormorant text-2xl md:text-3xl font-semibold" style={{ color: "var(--dark)" }}>12</div>
+              <div className="text-[10px] md:text-xs tracking-wider uppercase font-golos mt-1" style={{ color: "var(--warm-gray)" }}>наград</div>
             </div>
           </div>
         </div>
@@ -359,7 +359,7 @@ function AboutSection() {
             src={SPA_IMG}
             alt="СПА курорта Барвиха"
             className="w-full object-cover"
-            style={{ height: "520px", filter: "brightness(0.95)" }}
+            style={{ height: "clamp(300px, 50vw, 520px)", filter: "brightness(0.95)" }}
           />
           <div
             className="absolute -bottom-6 -left-6 hidden md:flex flex-col gap-1 px-8 py-6"
@@ -376,13 +376,13 @@ function AboutSection() {
 
 function ServicesSection() {
   return (
-    <section id="services" className="py-24 px-6" style={{ background: "white" }}>
+    <section id="services" className="py-16 md:py-24 px-5 md:px-6" style={{ background: "white" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 reveal">
-          <p className="text-xs tracking-[0.4em] uppercase font-golos mb-4" style={{ color: "var(--gold)" }}>
+        <div className="text-center mb-10 md:mb-16 reveal">
+          <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-golos mb-3 md:mb-4" style={{ color: "var(--gold)" }}>
             Всё включено
           </p>
-          <h2 className="font-cormorant text-5xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
+          <h2 className="font-cormorant text-3xl sm:text-4xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
             Услуги и развлечения
           </h2>
         </div>
@@ -391,7 +391,7 @@ function ServicesSection() {
           {SERVICES.map((s, i) => (
             <div
               key={s.title}
-              className="reveal p-10 group cursor-default transition-all duration-300 hover:-translate-y-1"
+              className="reveal p-6 md:p-10 group cursor-default transition-all duration-300 hover:-translate-y-1"
               style={{ background: "white", animationDelay: `${i * 0.1}s` }}
             >
               <div
@@ -416,32 +416,32 @@ function ServicesSection() {
 
 function RoomsSection() {
   return (
-    <section id="rooms" className="py-24 px-6" style={{ background: "var(--cream)" }}>
+    <section id="rooms" className="py-16 md:py-24 px-5 md:px-6" style={{ background: "var(--cream)" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 reveal">
-          <p className="text-xs tracking-[0.4em] uppercase font-golos mb-4" style={{ color: "var(--gold)" }}>
+        <div className="text-center mb-10 md:mb-16 reveal">
+          <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-golos mb-3 md:mb-4" style={{ color: "var(--gold)" }}>
             Размещение
           </p>
-          <h2 className="font-cormorant text-5xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
+          <h2 className="font-cormorant text-3xl sm:text-4xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
             Номера и сьюты
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {ROOMS.map((room, i) => (
             <div
               key={room.title}
               className="reveal group overflow-hidden"
               style={{ animationDelay: `${i * 0.15}s`, background: "white" }}
             >
-              <div className="overflow-hidden" style={{ height: "260px" }}>
+              <div className="overflow-hidden" style={{ height: "220px" }}>
                 <img
                   src={room.img}
                   alt={room.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="p-8">
+              <div className="p-5 md:p-8">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="font-cormorant text-2xl font-medium" style={{ color: "var(--dark)" }}>
                     {room.title}
@@ -476,16 +476,16 @@ function RoomsSection() {
 
 function FullscreenCTA() {
   return (
-    <section className="relative py-32 px-6 overflow-hidden">
+    <section className="relative py-20 md:py-32 px-5 md:px-6 overflow-hidden">
       <div className="absolute inset-0">
         <img src={HERO_IMG} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ background: "rgba(28,23,16,0.78)" }} />
       </div>
       <div className="relative z-10 max-w-3xl mx-auto text-center reveal">
-        <p className="text-xs tracking-[0.4em] uppercase font-golos mb-6" style={{ color: "var(--gold)" }}>
+        <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-golos mb-4 md:mb-6" style={{ color: "var(--gold)" }}>
           Специальное предложение
         </p>
-        <h2 className="font-cormorant text-5xl md:text-7xl font-light text-white mb-8 leading-tight">
+        <h2 className="font-cormorant text-3xl sm:text-5xl md:text-7xl font-light text-white mb-6 md:mb-8 leading-tight">
           Раннее бронирование<br />
           <em>— скидка 20%</em>
         </h2>
@@ -506,22 +506,22 @@ function FullscreenCTA() {
 
 function ReviewsSection() {
   return (
-    <section id="reviews" className="py-24 px-6" style={{ background: "white" }}>
+    <section id="reviews" className="py-16 md:py-24 px-5 md:px-6" style={{ background: "white" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 reveal">
-          <p className="text-xs tracking-[0.4em] uppercase font-golos mb-4" style={{ color: "var(--gold)" }}>
+        <div className="text-center mb-10 md:mb-16 reveal">
+          <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-golos mb-3 md:mb-4" style={{ color: "var(--gold)" }}>
             Гости о нас
           </p>
-          <h2 className="font-cormorant text-5xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
+          <h2 className="font-cormorant text-3xl sm:text-4xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
             Отзывы
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {REVIEWS.map((r, i) => (
             <div
               key={r.name}
-              className="reveal p-10 relative"
+              className="reveal p-6 md:p-10 relative"
               style={{ background: "var(--cream)", animationDelay: `${i * 0.15}s` }}
             >
               <div className="font-cormorant text-7xl leading-none mb-4" style={{ color: "var(--gold)", opacity: 0.35 }}>
@@ -555,13 +555,13 @@ function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 px-6" style={{ background: "var(--cream)" }}>
+    <section className="py-16 md:py-24 px-5 md:px-6" style={{ background: "var(--cream)" }}>
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16 reveal">
-          <p className="text-xs tracking-[0.4em] uppercase font-golos mb-4" style={{ color: "var(--gold)" }}>
+        <div className="text-center mb-10 md:mb-16 reveal">
+          <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-golos mb-3 md:mb-4" style={{ color: "var(--gold)" }}>
             Часто спрашивают
           </p>
-          <h2 className="font-cormorant text-5xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
+          <h2 className="font-cormorant text-3xl sm:text-4xl md:text-6xl font-light gold-line-center" style={{ color: "var(--dark)" }}>
             Вопросы и ответы
           </h2>
         </div>
@@ -570,7 +570,7 @@ function FAQSection() {
           {FAQ_ITEMS.map((item, i) => (
             <div key={i} style={{ background: "white" }}>
               <button
-                className="w-full px-8 py-6 text-left flex items-center justify-between gap-4"
+                className="w-full px-5 md:px-8 py-5 md:py-6 text-left flex items-center justify-between gap-4"
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 <span className="font-golos text-sm font-medium" style={{ color: "var(--dark)" }}>
@@ -583,7 +583,7 @@ function FAQSection() {
                 />
               </button>
               {open === i && (
-                <div className="px-8 pb-6">
+                <div className="px-5 md:px-8 pb-5 md:pb-6">
                   <p className="font-golos text-sm leading-relaxed" style={{ color: "var(--warm-gray)" }}>
                     {item.a}
                   </p>
@@ -608,13 +608,13 @@ function ContactSection() {
   };
 
   return (
-    <section id="contacts" className="py-24 px-6" style={{ background: "var(--dark)" }}>
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+    <section id="contacts" className="py-16 md:py-24 px-5 md:px-6" style={{ background: "var(--dark)" }}>
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-start">
         <div className="reveal">
-          <p className="text-xs tracking-[0.4em] uppercase font-golos mb-4" style={{ color: "var(--gold)" }}>
+          <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-golos mb-3 md:mb-4" style={{ color: "var(--gold)" }}>
             Бронирование
           </p>
-          <h2 className="font-cormorant text-5xl md:text-6xl font-light text-white mb-8 leading-tight">
+          <h2 className="font-cormorant text-3xl sm:text-4xl md:text-6xl font-light text-white mb-6 md:mb-8 leading-tight">
             Начните<br /><em>планировать отдых</em>
           </h2>
           <p className="font-golos text-sm leading-relaxed mb-12" style={{ color: "rgba(255,255,255,0.5)" }}>
