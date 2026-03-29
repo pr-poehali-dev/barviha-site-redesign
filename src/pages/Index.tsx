@@ -805,6 +805,33 @@ function Footer() {
   );
 }
 
+function StickyBookButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setVisible(window.scrollY > window.innerHeight);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <button
+      onClick={() => document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" })}
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 md:bottom-8 z-40 px-8 py-3.5 text-xs tracking-widest uppercase font-golos font-medium text-white shadow-lg transition-all duration-500 hover:opacity-90"
+      style={{
+        background: "var(--gold)",
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? "auto" : "none",
+      }}
+    >
+      <span className="flex items-center gap-2">
+        <Icon name="Calendar" size={14} />
+        Забронировать
+      </span>
+    </button>
+  );
+}
+
 function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
@@ -861,6 +888,7 @@ export default function Index() {
       <FAQSection />
       <ContactSection />
       <Footer />
+      <StickyBookButton />
       <CookieBanner />
     </div>
   );
