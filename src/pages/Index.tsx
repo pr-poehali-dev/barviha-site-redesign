@@ -123,16 +123,16 @@ function Header() {
         scrolled ? "bg-cream/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         <div className="flex flex-col leading-none">
           <span
-            className="font-cormorant text-2xl font-semibold tracking-widest"
+            className="font-cormorant text-lg sm:text-2xl font-semibold tracking-widest"
             style={{ color: scrolled ? "var(--dark)" : "white" }}
           >
             БАРВИХА
           </span>
           <span
-            className="text-xs tracking-[0.3em] uppercase font-golos"
+            className="text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase font-golos"
             style={{ color: scrolled ? "var(--gold)" : "rgba(255,255,255,0.7)" }}
           >
             курорт · анапа
@@ -196,56 +196,45 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
       <div className="absolute inset-0">
         <img
           src={HERO_IMG}
           alt="Курорт Барвиха Анапа"
-          className="w-full h-full object-cover"
-          style={{ animation: "heroScale 1.5s ease forwards" }}
+          className="w-full h-full object-cover animate-hero-scale"
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(28,23,16,0.92) 0%, rgba(28,23,16,0.5) 50%, rgba(28,23,16,0.25) 100%)" }}
+          style={{ background: "linear-gradient(to top, rgba(28,23,16,0.95) 0%, rgba(28,23,16,0.6) 40%, rgba(28,23,16,0.2) 100%)" }}
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 pt-24 pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-16 md:pb-20 w-full">
         <div className="max-w-2xl">
           <p
-            className="text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 md:mb-6 font-golos"
-            style={{ color: "var(--gold)", animation: "fadeUp 0.8s ease 0.3s both" }}
+            className="text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-3 sm:mb-6 font-golos animate-hero-fade-1"
+            style={{ color: "var(--gold)" }}
           >
             Черноморское побережье · Анапа
           </p>
-          <h1
-            className="font-cormorant text-[2.6rem] leading-[1.05] sm:text-6xl md:text-8xl font-light text-white mb-5 md:mb-8"
-            style={{ animation: "fadeUp 0.8s ease 0.5s both" }}
-          >
-            Место,<br />
-            <em>где останавливается</em><br />
-            время
+          <h1 className="font-cormorant text-[2rem] sm:text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[1.1] mb-4 sm:mb-6 md:mb-8 animate-hero-fade-2">
+            Место, где<br className="sm:hidden" />{" "}
+            <em>останавливается</em> время
           </h1>
-          <p
-            className="font-golos text-sm md:text-base text-white/70 mb-8 md:mb-10 leading-relaxed max-w-md"
-            style={{ animation: "fadeUp 0.8s ease 0.7s both" }}
-          >
-            Премиальный курорт на берегу Чёрного моря. 18 гектаров природы, открытые бассейны, авторская кухня и полное спокойствие.
+          <p className="font-golos text-[13px] sm:text-sm md:text-base text-white/65 mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-md animate-hero-fade-3">
+            Премиальный курорт на берегу Чёрного моря. 18 гектаров природы, бассейны, авторская кухня и полное спокойствие.
           </p>
-          <div
-            className="flex flex-col sm:flex-row gap-3 md:gap-4"
-            style={{ animation: "fadeUp 0.8s ease 0.9s both" }}
-          >
+          <div className="flex flex-col sm:flex-row gap-3 animate-hero-fade-4">
             <button
               onClick={() => document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-7 py-3.5 md:px-8 md:py-4 text-xs md:text-sm tracking-widest uppercase font-golos font-medium text-white transition-opacity hover:opacity-90"
+              className="px-6 py-3 sm:px-8 sm:py-4 text-[11px] sm:text-xs md:text-sm tracking-widest uppercase font-golos font-medium text-white transition-opacity hover:opacity-90 text-center"
               style={{ background: "var(--gold)" }}
             >
               Забронировать
             </button>
             <button
               onClick={() => document.querySelector("#rooms")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-7 py-3.5 md:px-8 md:py-4 text-xs md:text-sm tracking-widest uppercase font-golos font-medium text-white border border-white/30 hover:border-white/70 transition-colors"
+              className="px-6 py-3 sm:px-8 sm:py-4 text-[11px] sm:text-xs md:text-sm tracking-widest uppercase font-golos font-medium text-white border border-white/30 hover:border-white/70 transition-colors text-center"
             >
               Смотреть номера
             </button>
@@ -253,12 +242,12 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-6 md:right-8 hidden sm:flex flex-col items-center gap-2 z-10">
+      <div className="absolute bottom-8 right-6 md:right-8 hidden md:flex flex-col items-center gap-2 z-10">
         <span className="text-white/40 text-[10px] tracking-widest font-golos" style={{ writingMode: "vertical-rl" }}>
           ПРОКРУТИТЕ
         </span>
         <div className="w-px h-12 overflow-hidden" style={{ background: "rgba(255,255,255,0.15)" }}>
-          <div className="w-full" style={{ height: "50%", background: "var(--gold)", animation: "scrollLine 2s ease infinite" }} />
+          <div className="w-full animate-scroll-line" style={{ height: "50%", background: "var(--gold)" }} />
         </div>
       </div>
 
@@ -267,14 +256,20 @@ function Hero() {
           0% { transform: translateY(-100%); }
           100% { transform: translateY(200%); }
         }
+        .animate-scroll-line { animation: scrollLine 2s ease infinite; }
         @keyframes heroScale {
           from { transform: scale(1.06); }
           to { transform: scale(1); }
         }
+        .animate-hero-scale { animation: heroScale 1.5s ease forwards; }
         @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(30px); }
+          from { opacity: 0; transform: translateY(24px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        .animate-hero-fade-1 { animation: fadeUp 0.7s ease 0.2s both; }
+        .animate-hero-fade-2 { animation: fadeUp 0.7s ease 0.4s both; }
+        .animate-hero-fade-3 { animation: fadeUp 0.7s ease 0.6s both; }
+        .animate-hero-fade-4 { animation: fadeUp 0.7s ease 0.8s both; }
       `}</style>
     </section>
   );
@@ -757,8 +752,8 @@ function ContactSection() {
 
 function Footer() {
   return (
-    <footer className="py-10 px-6" style={{ background: "#130F0A", borderTop: "1px solid rgba(196,165,90,0.2)" }}>
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="py-8 sm:py-10 px-4 sm:px-6 pb-20 sm:pb-10" style={{ background: "#130F0A", borderTop: "1px solid rgba(196,165,90,0.2)" }}>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="font-cormorant text-xl tracking-widest" style={{ color: "var(--gold)" }}>
             БАРВИХА
@@ -817,7 +812,7 @@ function StickyBookButton() {
   return (
     <button
       onClick={() => document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" })}
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 md:bottom-8 z-40 px-8 py-3.5 text-xs tracking-widest uppercase font-golos font-medium text-white shadow-lg transition-all duration-500 hover:opacity-90"
+      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:w-auto md:right-8 md:bottom-8 z-40 px-6 py-3 sm:px-8 sm:py-3.5 text-[11px] sm:text-xs tracking-widest uppercase font-golos font-medium text-white shadow-lg transition-all duration-500 hover:opacity-90 text-center"
       style={{
         background: "var(--gold)",
         opacity: visible ? 1 : 0,
@@ -852,7 +847,7 @@ function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-sm z-50 p-6 shadow-2xl cookie-banner"
+      className="fixed bottom-16 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-50 p-4 sm:p-6 shadow-2xl cookie-banner"
       style={{ background: "white", border: "1px solid hsl(var(--border))" }}
     >
       <p className="font-golos text-xs leading-relaxed mb-4" style={{ color: "var(--warm-gray)" }}>
